@@ -272,6 +272,98 @@
     updateReminders();
   }
 
+
+
+  // Helper: Map date string to weekday name (assuming due_date is YYYY-MM-DD)
+function getWeekdayFromDate(dateStr) {
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  return days[d.getDay()];
+}
+
+function loadTasks() {
+  fetch('http://localhost/overflow/get_tasks.php')
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        // Clear all existing tasks
+        document.querySelectorAll('.tasks-list').forEach(list => list.innerHTML = '');
+
+        data.tasks.forEach(task => {
+          // Find weekCol by day
+          const day = getWeekdayFromDate(task.due_date);
+          if (!day) return;
+          const weekCol = Array.from(document.querySelectorAll('.week-col')).find(col => col.querySelector('h2').textContent === day);
+          if (!weekCol) return;
+
+          // Build taskDiv similar to addTask
+          const taskDiv = document.createElement('div');
+          taskDiv.className = 'task-item category-' + (task.category_name ? task.category_name.toLowerCase() : 'other');
+          taskDiv.dataset.taskId = task.id; // Store task ID for later
+          taskDiv.innerHTML = `
+            <span class="category">${task.category_name || ''}</span>
+            <div class="task-main-row">
+              <input type="checkbox" class="complete-task-checkbox" title="Mark as complete" ${task.completed == 1 ? 'checked' : ''}>
+              <span class="task-desc-text">${task.title}</span>
+            </div>
+            <div class="task-actions">
+              <button class="edit-btn" title="Edit">✏️</button>
+              <button class="remove-btn" title="Remove">🗑️</button>
+            </div>
+          `;
+
+          // Checkbox logic
+          const checkbox = taskDiv.querySelector('.complete-task-checkbox');
+          checkbox.checked = task.completed == 1;
+          checkbox.addEventListener('change', function() {
+            updateTaskCompleted(task.id, checkbox.checked ? 1 : 0);
+            taskDiv.classList.toggle('completed', checkbox.checked);
+          });
+
+          // Remove logic
+          taskDiv.querySelector('.remove-btn').onclick = function() {
+            deleteTaskFromBackend(task.id, () => {
+              taskDiv.remove();
+              updateTaskCounts();
+            });
+          };
+
+          // Edit logic (same as before, can add update API later)
+          taskDiv.querySelector('.edit-btn').onclick = function() {
+            // ... implement if needed ...
+            alert('Edit feature not implemented yet!');
+          };
+
+          weekCol.querySelector('.tasks-list').appendChild(taskDiv);
+        });
+        updateTaskCounts();
+      }
+    });
+}
+
+
+
+function deleteTaskFromBackend(taskId, callback) {
+  const formData = new FormData();
+  formData.append('id', taskId);
+  fetch('http://localhost/overflow/delete_task.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        if (callback) callback();
+      } else {
+        alert('Failed to delete task: ' + data.message);
+      }
+    });
+}
+
+// Call loadTasks on page load
+window.addEventListener('DOMContentLoaded', loadTasks);
+
   // Remove reminder by index
   function removeReminder(index) {
     reminders.splice(index, 1);
@@ -437,6 +529,16 @@
       if (badge) badge.textContent = count;
     });
   }
+
+  function updateTaskCompleted(taskId, completed) {
+  const formData = new FormData();
+  formData.append('id', taskId);
+  formData.append('completed', completed ? 1 : 0);
+  fetch('http://localhost/overflow/update_task.php', {
+    method: 'POST',
+    body: formData
+  });
+}
 
   // Hide popup if clicked outside
   document.addEventListener('mousedown', function (e) {
