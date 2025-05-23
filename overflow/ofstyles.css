@@ -1,0 +1,863 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eaf2fb 0%, #f8fbff 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
+
+/* Login Page */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  min-height: 100vh; /* Full viewport height */
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  background: #fff;
+  padding: 32px 28px 24px 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  width: 320px;
+  max-width: 95vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all children horizontally */
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 24px auto;
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 12px 10px;
+  margin-bottom: 16px;
+  border: 1px solid #b5c7e6;
+  border-radius: 7px;
+  background: #f7fafd;
+  font-size: 1rem;
+  transition: border 0.15s;
+  text-align: left; /* Align text to the left */
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+.login-box .extra {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-box .extra a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.login-header {
+  background: #fff;
+  color: #003366;
+  /* ...rest of your styles... */
+}
+
+/* Dashboard Page */
+/* General Page Style */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #003366 0%, #0056b3 100%);
+  min-height: 100vh;
+  color: #222;
+}
+
+header,
+.dashboard-header {
+  background: linear-gradient(40deg, #fff 0%, #7a9fc4 100%);
+  color: #003366;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 24px 0 18px 0;
+  margin-bottom: 0;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+/* Menu Button */
+.menu-button {
+  position: static;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.menu-button span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  margin: 4px 0;
+}
+
+/* Reminder feature styles */
+
+.reminder-container {
+  position: static;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  user-select: none;
+}
+
+.reminder-bell {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  font-size: 28px;
+}
+
+.reminder-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #d00;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.reminder-popup {
+  display: none;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 260px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 15px;
+  color: #333;
+  z-index: 1000;
+}
+
+reminder-popup.open {
+  display: block;
+}
+
+.reminder-popup h3 {
+  margin-top: 0;
+  color: #007BFF;
+  font-weight: 600;
+}
+
+reminder-popup ul {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.reminder-popup ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.reminder-popup ul li:last-child {
+  border-bottom: none;
+}
+
+.reminder-popup ul li button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #d00;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.reminder-popup input[type="text"] {
+  width: calc(100% - 60px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+.reminder-popup button {
+  padding: 8px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reminder-popup button:hover {
+  background-color: #0056b3;
+}
+
+/* Task History Panel */
+.task-history-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  width: 280px;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.task-history-panel.open {
+  transform: translateX(0);
+}
+
+.task-history-panel h2 {
+  margin-top: 0;
+  color: #007BFF;
+}
+
+.task-history-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-history-panel ul li {
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #f0f2f5;
+  border-radius: 6px;
+}
+
+/* Dashboard Box */
+.dashboard {
+  position: absolute;
+  top: 90px;              /* space below the header */
+  left: 20px;             /* 20px gap on the left */
+  right: 20px;            /* 20px gap on the right */
+  bottom: 20px;           /* 20px gap at the bottom */
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  z-index: 1;
+  overflow-y: auto;
+  max-width: none;        /* Remove max-width to allow full width minus allowance */
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll on the dashboard */
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .dashboard {
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    top: 70px;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: none;
+  }
+}
+
+.dashboard h1 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  letter-spacing: 1px;
+}
+
+/* Task Input */
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.task-input button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.task-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Task List */
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.task-item:hover .task-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.edit-btn svg {
+  display: block;
+}
+
+.edit-btn:hover {
+  background: #e3f2fd;
+}
+
+.remove-btn svg {
+  display: block;
+}
+
+.remove-btn:hover {
+  background: #ffeaea;
+}
+
+.dashboard-logo {
+  height: 45px;
+  max-width: 160px;
+  vertical-align: middle;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 24px;
+  height: 70px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-bottom: 2px solid rgba(0,0,0,0.04);
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  pointer-events: none; /* Prevent accidental overlap clicks */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: absolute;
+  right: 24px;
+  top: 0;
+  height: 100%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background: #003366;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid #fff;
+}
+
+.username {
+  color: #003366;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Week columns grid */
+.week-columns {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  margin-bottom: 24px;
+  background: #eaf2fb;
+  border-radius: 12px;
+  padding: 12px 0;
+  table-layout: fixed;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+/* Each day column */
+.week-col {
+  position: relative;
+  text-align: left;
+  padding-left: 12px;
+  padding-right: 12px;
+  min-width: 0;
+  overflow: visible; /* Allow popup to overflow if needed */
+  word-break: break-word;
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.week-col:hover {
+  background: #f0f6ff;
+}
+
+/* Header: day title and add button side by side */
+.week-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  gap: 10px;                   /* Space between button and title */
+  margin-bottom: 6px;
+}
+
+/* Day title */
+.week-col h2 {
+  color: #003366;
+  margin: 0 0 12px 0;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Add button */
+.add-day-btn {
+  background: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px; /* Smaller plus sign/text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 10px; /* Add space between button and title */
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  outline: none;
+}
+.add-day-btn:hover, .add-day-btn:focus {
+  background: #0056b3;
+  box-shadow: 0 4px 16px rgba(0,64,255,0.10);
+}
+
+/* Add task popup */
+.task-input-popup {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 96%;
+  background: #f7fafd;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 16px 14px 12px 14px;
+  z-index: 20;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  animation: fadeIn 0.18s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.task-input-popup select,
+.task-input-popup input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  border: 1px solid #b5c7e6;
+  font-size: 1rem;
+  background: #f7fafd;
+  transition: border 0.15s;
+}
+.task-input-popup select:focus,
+.task-input-popup input:focus {
+  border: 1.5px solid #007BFF;
+  outline: none;
+}
+
+.task-input-popup input.task-desc {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.submit-task-btn {
+  background:#007BFF; 
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,64,255,0.08);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+  width: 100%;
+  margin-top: 2px;
+}
+.submit-task-btn:hover, .submit-task-btn:focus {
+  background: #003366;
+  box-shadow: 0 4px 16px rgba(0,64,255,0.13);
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.tasks-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  background: #f7fafd;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  color: #222;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 4px solid #007BFF;
+  transition: box-shadow 0.18s;
+}
+.task-item .category {
+  font-size: 0.92em;
+  color: #007BFF;
+  font-weight: 600;
+  margin-bottom: 2px;
+  letter-spacing: 0.2px;
+}
+.task-item:hover {
+  box-shadow: 0 4px 16px rgba(0,64,255,0.10);
+}
+
+/* Task card color by category */
+.task-item.category-work {
+  
+  border-left: 4px solid #e53935;
+}
+.task-item.category-personal {
+   
+  border-left: 4px solid #43a047;
+}
+.task-item.category-school {
+  
+  border-left: 4px solid #1976d2;
+}
+
+/* Completed tasks styles */
+.task-item.completed .task-desc-text {
+  text-decoration: line-through;
+  color: #aaa;
+  opacity: 0.7;
+}
+.task-item.completed {
+  background: #f3f3f3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .week-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 8px;
+  }
+  .dashboard {
+    padding: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .week-columns {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 4px;
+  }
+  .dashboard {
+    padding: 4px;
+  }
+  .task-input-popup {
+    max-width: 99%;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* --- Login Page Styling with Dashboard Colors --- */
+body {
+  background: linear-gradient(135deg, #003366 0%, #0056b3 100%);
+  color: #222;
+}
+
+
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 18px auto;
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+}
+
+.login-box {
+  background: #fff;
+  padding: 32px 28px 24px 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  width: 320px;
+  max-width: 95vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all children horizontally */
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #003366;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 12px 10px;
+  margin-bottom: 16px;
+  border: 1px solid #b5c7e6;
+  border-radius: 7px;
+  background: #f7fafd;
+  font-size: 1rem;
+  transition: border 0.15s;
+  text-align: left; /* Align text to the left */
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+  border: 1.5px solid #007BFF;
+  outline: none;
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  background: #003366;
+  color: #fff;
+  padding: 12px 0;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.18s;
+  text-decoration: none;
+}
+.login-btn:hover, .login-btn:focus {
+  background: #0056b3;
+}
+
+.extra {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.extra a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.extra a:hover {
+  color: #0056b3;
+}
+
+.edit-task-input {
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #b5c7e6;
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: #f7fafd;
+  margin: 2px 0;
+  box-sizing: border-box;
+}
+.edit-task-input:focus {
+  border: 1.5px solid #007BFF;
+  outline: none;
+}
+
+.header-title-logo,
+.dashboard-logo {
+  height: 45px;
+  max-width: 160px;
+  vertical-align: middle;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.task-main-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.complete-task-checkbox {
+  margin: 0 4px 0 0;
+  accent-color: #007BFF;
+}
+
+.task-count-badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: #007BFF;
+  border-radius: 12px;
+  margin-left: 8px;
+  vertical-align: middle;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
