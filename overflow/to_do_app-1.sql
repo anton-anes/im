@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 02:04 PM
+-- Generation Time: May 23, 2025 at 04:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `user_id`) VALUES
-(1, 'Work', 1);
+(1, 'Work', 1),
+(2, 'Personal', 1),
+(3, 'School', 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,18 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `title`, `description`, `due_date`, `pinned`, `completed`, `user_id`, `category_id`) VALUES
-(1, 'Finish report', 'Complete the annual report for Q1', '2025-05-21', 0, 0, 1, 1);
+(3, 'dadsad', '', '2025-05-20', NULL, 0, 1, 1),
+(5, 'dadasda', '', '2025-05-19', NULL, 0, 1, 1),
+(7, 'wdaf', '', '2025-05-23', NULL, 0, 1, 1),
+(9, 'sfa', '', '2025-05-24', NULL, 0, 1, 1),
+(10, 'safas', '', '2025-05-21', NULL, 0, 1, 1),
+(11, 'fasfa', '', '2025-05-21', NULL, 0, 1, 1),
+(12, 'addsa', '', '2025-05-22', NULL, 0, 1, 1),
+(16, 'adad', '', '2025-05-20', NULL, 0, 1, 1),
+(17, 'dada', '', '2025-05-19', NULL, 0, 1, 1),
+(20, 'afaf', '', '2025-05-22', NULL, 0, 1, 2),
+(21, 'fasfasf', '', '2025-05-22', NULL, 0, 1, 3),
+(22, 'admin', 'password', NULL, 0, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +148,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'jane_doe', 'jane@example.com', 'password123');
+(1, 'admin', 'admin@example.com', 'password');
 
 --
 -- Indexes for dumped tables
@@ -206,7 +219,7 @@ ALTER TABLE `attachments`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -224,7 +237,7 @@ ALTER TABLE `subtasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `task_logs`
